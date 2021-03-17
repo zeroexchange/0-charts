@@ -188,6 +188,7 @@ export async function getHistoricalPairReturns(startDateTimestamp, currentPairDa
 
   const shareValues = await getShareValueOverTime(currentPairData.id, dayTimestamps)
   const shareValuesFormatted = {}
+  // eslint-disable-next-line
   shareValues?.map((share) => {
     shareValuesFormatted[share.timestamp] = share
   })

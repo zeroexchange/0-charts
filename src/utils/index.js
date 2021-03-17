@@ -382,7 +382,7 @@ export const formattedNum = (number, usd = false, acceptNegatives = false) => {
   }
 
   if (usd) {
-    if (num < 0.1) {
+    if (num < 10) {
       return '$' + Number(parseFloat(num).toFixed(4))
     } else {
       let usdString = priceFormatter.format(num)
