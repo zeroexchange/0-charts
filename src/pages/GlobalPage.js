@@ -65,7 +65,7 @@ function GlobalPage() {
 
   return (
     <PageWrapper>
-      <ThemedBackground backgroundColor={transparentize(0.7, '#2662FF')} />
+      <ThemedBackground backgroundColor={transparentize(0.7, '#6752F7')} />
       <ContentWrapper>
         <div>
           <AutoColumn gap="24px" style={{ paddingBottom: below800 ? '0' : '24px' }}>

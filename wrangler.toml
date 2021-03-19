@@ -1,6 +1,6 @@
 name = "zero-analytics"
 type = "javascript"
-route = "info.zero.exchange/*"
+route = "info.0.exchange/*"
 
 [site]
 bucket = "./build"
