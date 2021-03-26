@@ -2,8 +2,8 @@
 
 An open source analytics platform for Zero -- a community-driven decentralized exchange for Avalanche and Ethereum assets with fast settlement, low transaction fees, and a democratic distribution -- powered by Avalanche.
 
-- Website: [zero.exchange](https://zero.exchange/)
-- Interface: [app.zero.exchange](https://app.zero.exchange)
+- Website: [0.exchange](https://0.exchange/)
+- Interface: [app.0.exchange](https://app.0.exchange)
 - Telegram: [Zero](https://t.me/ZeroExchangeCommunity)
 - Discord: [Zero](https://discord.com/invite/XtZTNVTX5T)
 - Twitter: [@zerograph](https://twitter.com/officialzerodex)

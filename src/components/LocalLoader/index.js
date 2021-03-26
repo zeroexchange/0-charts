@@ -38,7 +38,7 @@ const LocalLoader = ({ fill }) => {
   return (
     <Wrapper fill={fill}>
       <AnimatedImg>
-        <img src={require('../../assets/logo-zero-512.png')} alt="loading-icon" />
+        <img src={require('../../assets/0-icon.png')} alt="loading-icon" />
       </AnimatedImg>
     </Wrapper>
   )
