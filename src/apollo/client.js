@@ -4,7 +4,7 @@ import { HttpLink } from 'apollo-link-http'
 
 export const client = new ApolloClient({
   link: new HttpLink({
-    uri: "https://graph.zero.exchange/subgraphs/name/zeroexchange/zerograph"
+    uri: "https://zero-graph.0.exchange/subgraphs/name/zeroexchange/zerograph"
   }),
   cache: new InMemoryCache(),
   shouldBatch: true,
@@ -21,7 +21,7 @@ export const healthClient = new ApolloClient({
 
 export const blockClient = new ApolloClient({
   link: new HttpLink({
-    uri: 'https://graph.zero.exchange/subgraphs/name/zeroexchange/avalanche-blocks'
+    uri: 'https://zero-graph.0.exchange/subgraphs/name/zeroexchange/avalanche-blocks'
   }),
   cache: new InMemoryCache(),
 })
