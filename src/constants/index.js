@@ -1,4 +1,8 @@
-export const FACTORY_ADDRESS = '0x2Ef422F30cdb7c5F1f7267AB5CF567A88974b308' // new factory
+export const FACTORY_ADDRESS
+  = process.env.REACT_APP_CHAIN === 'ava' ? "0x2Ef422F30cdb7c5F1f7267AB5CF567A88974b308"
+    : process.env.REACT_APP_CHAIN === 'bsc' ? "0x52abdb3536a3a966056e096f2572b2755df26eac"
+      : null;
+
 
 export const WAVAX_ADDRESS = '0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7'
 

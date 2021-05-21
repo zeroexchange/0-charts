@@ -28,6 +28,11 @@ const ETH_PRICE_KEY = 'ETH_PRICE_KEY'
 const UPDATE_ALL_PAIRS_IN_UNISWAP = 'UPDATE_ALL_PAIRS_IN_UNISWAP'
 const UPDATE_ALL_TOKENS_IN_UNISWAP = 'UPDATE_ALL_TOKENS_IN_UNISWAP'
 const UPDATE_TOP_LPS = 'UPDATE_TOP_LPS'
+const ETH_COINGECKO_NAME
+  = process.env.REACT_APP_CHAIN === 'ava' ? "avalanche-2"
+    : process.env.REACT_APP_CHAIN === 'bsc' ? "binancecoin"
+      : null;
+
 
 const coinGeckoClient = new CoinGecko()
 
@@ -462,15 +467,15 @@ const getEthPrice = async () => {
   const utcOneDayBack = utcCurrentTime.subtract(1, 'day').startOf('minute').unix() * 1000
 
   let result = await coinGeckoClient.simple.price({
-    ids: ['avalanche-2'],
+    ids: [ETH_COINGECKO_NAME],
     vs_currencies: ['usd'],
     include_24hr_change: ['true']
   })
 
-  let ethPrice = result['data']['avalanche-2']['usd']
-  let priceChangeETH = result['data']['avalanche-2']['usd_24h_change']
+  let ethPrice = result['data'][ETH_COINGECKO_NAME]['usd']
+  let priceChangeETH = result['data'][ETH_COINGECKO_NAME]['usd_24h_change']
 
-  result = await coinGeckoClient.coins.fetchMarketChart('avalanche-2', {
+  result = await coinGeckoClient.coins.fetchMarketChart(ETH_COINGECKO_NAME, {
     days: 1,
     vs_currency: 'usd'
   })
@@ -495,7 +500,7 @@ export const getEthPriceAtTimestamp = async (timestamp) => {
   let diff = utcCurrentTime - timestamp
   let days_back = Math.round(diff / (60 * 60 * 24))
 
-  let result = await coinGeckoClient.coins.fetchMarketChart('avalanche-2', {
+  let result = await coinGeckoClient.coins.fetchMarketChart(ETH_COINGECKO_NAME, {
     days: days_back,
     vs_currency: 'usd'
   })
@@ -505,11 +510,11 @@ export const getEthPriceAtTimestamp = async (timestamp) => {
 
 export const getCurrentEthPrice = async () => {
   let result = await coinGeckoClient.simple.price({
-    ids: ['avalanche-2'],
+    ids: [ETH_COINGECKO_NAME],
     vs_currencies: ['usd']
   })
 
-  let ethPrice = result['data']['avalanche-2']['usd']
+  let ethPrice = result['data'][ETH_COINGECKO_NAME]['usd']
 
   return ethPrice
 }
@@ -522,7 +527,7 @@ export const getEthPriceAtDate = async (timestamp) => {
 
   let dateString = datetime.getDate() + '-' + (datetime.getMonth() + 1) + '-' + datetime.getFullYear()
 
-  let result = await coinGeckoClient.coins.fetchHistory('avalanche-2', {
+  let result = await coinGeckoClient.coins.fetchHistory(ETH_COINGECKO_NAME, {
     date: dateString
   })
 

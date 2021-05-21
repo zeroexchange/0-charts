@@ -53,7 +53,10 @@ const TradingViewChart = ({
 
   // parese the data and format for tardingview consumption
   const formattedData = data?.map((entry) => {
-    const formattedValue = (+entry.id > 18705) ? parseFloat(entry[field]) * 10 : parseFloat(entry[field])
+    let formattedValue = parseFloat(entry[field]);
+    if (process.env.REACT_APP_CHAIN === 'ava' && Number(entry.id) > 18705) {
+      formattedValue *= 10;
+    }
     return {
       time: dayjs.unix(entry.date).utc().format('YYYY-MM-DD'),
       value: formattedValue,
