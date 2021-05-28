@@ -69,8 +69,10 @@ export default function TokenLogo({ address, header = false, size = '24px', ...r
       </StyledEthereumLogo>
     )
   }
-
-  const path = `https://raw.githubusercontent.com/zeroexchange/bridge-tokens/main/avalanche-tokens/${isAddress(
+  const blockchainName = process.env.REACT_APP_CHAIN === 'ava' ? 'avalanche'
+    : process.env.REACT_APP_CHAIN === 'bsc' ? 'binance'
+      : 'avalanche';
+  const path = `https://raw.githubusercontent.com/zeroexchange/bridge-tokens/main/${blockchainName}-tokens/${isAddress(
     address
   )}/logo.png`
 

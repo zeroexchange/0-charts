@@ -8,7 +8,10 @@ import copy from 'copy-to-clipboard'
 export function useColor(tokenAddress, token) {
   const [color, setColor] = useState('#2172E5')
   if (tokenAddress) {
-    const path = `https://raw.githubusercontent.com/zeroexchange/bridge-tokens/main/avalanche-tokens/${isAddress(
+    const blockchainName = process.env.REACT_APP_CHAIN === 'ava' ? 'avalanche'
+      : process.env.REACT_APP_CHAIN === 'bsc' ? 'binance'
+        : 'avalanche';
+    const path = `https://raw.githubusercontent.com/zeroexchange/bridge-tokens/main/${blockchainName}-tokens/${isAddress(
       tokenAddress
     )}/logo.png`
     if (path) {
