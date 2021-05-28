@@ -73,7 +73,7 @@
   },
   "scripts": {
     "start": "export REACT_APP_CHAIN=ava && react-scripts start",
-    "build": "react-scripts build",
+    "build": "export REACT_APP_CHAIN=ava && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
