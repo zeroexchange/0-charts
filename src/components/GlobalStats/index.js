@@ -28,14 +28,17 @@ export default function GlobalStats() {
   const [ethPrice] = useEthPrice()
   const formattedEthPrice = ethPrice ? formattedNum(ethPrice, true) : '-'
   const oneDayFees = oneDayVolumeUSD ? formattedNum(oneDayVolumeUSD * 0.003, true) : ''
-
+  const currencyName
+  = process.env.REACT_APP_CHAIN === 'ava' ? "AVAX"
+    : process.env.REACT_APP_CHAIN === 'bsc' ? "BNB"
+      : 'ETH';
   return (
     <Header>
       <RowBetween style={{ padding: below816 ? '0.5rem' : '.5rem' }}>
         <RowFixed>
           {!below400 && (
             <TYPE.main mr={'1rem'} style={{ position: 'relative' }}>
-              AVAX Price: <Medium>{formattedEthPrice}</Medium>
+              {currencyName} Price: <Medium>{formattedEthPrice}</Medium>
             </TYPE.main>
           )}
 
