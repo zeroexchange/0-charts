@@ -30,6 +30,7 @@ import { usePathDismissed, useSavedPairs } from '../contexts/LocalStorage'
 import { Bookmark, PlusCircle } from 'react-feather'
 import FormattedName from '../components/FormattedName'
 import { useListedTokens } from '../contexts/Application'
+import { chainConfig } from '../constants'
 
 const DashboardWrapper = styled.div`
   width: 100%;
@@ -475,7 +476,7 @@ function PairPage({ pairAddress, history }) {
                     </AutoRow>
                   </Column>
                   <ButtonLight color={backgroundColor}>
-                    <Link color={backgroundColor} external href={'https://cchain.explorer.avax.network/address/' + pairAddress}>
+                    <Link color={backgroundColor} external href={`${chainConfig.blockExplorerUrl}address/${pairAddress}`}>
                       View on the C-Chain Explorer ↗
                     </Link>
                   </ButtonLight>

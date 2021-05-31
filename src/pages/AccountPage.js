@@ -15,7 +15,7 @@ import { PageWrapper, ContentWrapper, StyledIcon } from '../components'
 import DoubleTokenLogo from '../components/DoubleLogo'
 import { Bookmark, Activity } from 'react-feather'
 import Link from '../components/Link'
-import { FEE_WARNING_TOKENS } from '../constants'
+import { chainConfig, FEE_WARNING_TOKENS } from '../constants'
 import { BasicLink } from '../components/Link'
 import { useMedia } from 'react-use'
 import Search from '../components/Search'
@@ -156,7 +156,7 @@ function AccountPage({ account }) {
         <RowBetween>
           <TYPE.body>
             <BasicLink to="/accounts">{'Accounts '}</BasicLink>→{' '}
-            <Link lineHeight={'145.23%'} href={'https://cchain.explorer.avax.network/address/' + account} target="_blank">
+            <Link lineHeight={'145.23%'} href={`${chainConfig.blockExplorerUrl}address/${account}`} target="_blank">
               {' '}
               {account?.slice(0, 42)}{' '}
             </Link>
@@ -167,7 +167,7 @@ function AccountPage({ account }) {
           <RowBetween>
             <span>
               <TYPE.header fontSize={24}>{account?.slice(0, 6) + '...' + account?.slice(38, 42)}</TYPE.header>
-              <Link lineHeight={'145.23%'} href={'https://cchain.explorer.avax.network/address/' + account} target="_blank">
+              <Link lineHeight={'145.23%'} href={`${chainConfig.blockExplorerUrl}address/${account}`} target="_blank">
                 <TYPE.main fontSize={14}>View on the C-Chain Explorer</TYPE.main>
               </Link>
             </span>

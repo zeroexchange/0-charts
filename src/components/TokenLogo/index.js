@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { isAddress } from '../../utils/index.js'
 import PlaceHolder from '../../assets/placeholder.png'
 import EthereumLogo from '../../assets/eth.png'
+import { chainConfig } from '../../constants/index.js'
 
 const BAD_IMAGES = {}
 
@@ -69,13 +70,7 @@ export default function TokenLogo({ address, header = false, size = '24px', ...r
       </StyledEthereumLogo>
     )
   }
-
-  const chainName
-    = process.env.REACT_APP_CHAIN === 'ava' ? "avalanche"
-      : process.env.REACT_APP_CHAIN === 'bsc' ? "binance"
-        : 'ethereum';
-
-  const path = `https://raw.githubusercontent.com/zeroexchange/bridge-tokens/main/${chainName}-tokens/${isAddress(
+  const path = `https://raw.githubusercontent.com/zeroexchange/bridge-tokens/main/${chainConfig.chainName}-tokens/${isAddress(
     address
   )}/logo.png`
 

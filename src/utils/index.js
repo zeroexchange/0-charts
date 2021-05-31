@@ -8,9 +8,9 @@ import { GET_BLOCK, GET_BLOCKS, GET_BLOCK_BEFORE, GET_BLOCK_AFTER, SHARE_VALUE }
 import { Text } from 'rebass'
 import _Decimal from 'decimal.js-light'
 import toFormat from 'toformat'
-import { timeframeOptions, WAVAX_ADDRESS } from '../constants'
+import { chainConfig, timeframeOptions } from '../constants'
 import Numeral from 'numeral'
-
+ 
 // format libraries
 const Decimal = toFormat(_Decimal)
 BigNumber.set({ EXPONENTIAL_AT: 50 })
@@ -42,13 +42,13 @@ export function getPoolLink(token0Address, token1Address = null, remove = false)
     return (
       `https://app.0.exchange/#/` +
       (remove ? `remove` : `add`) +
-      `/${token0Address === WAVAX_ADDRESS ? 'AVAX' : token0Address}/${'AVAX'}`
+      `/${token0Address === chainConfig.wrappedCoinAddress ? chainConfig.currencyName : token0Address}/${chainConfig.currencyName}`
     )
   } else {
     return (
       `https://app.0.exchange/#/` +
       (remove ? `remove` : `add`) +
-      `/${token0Address === WAVAX_ADDRESS ? 'AVAX' : token0Address}/${token1Address === WAVAX_ADDRESS ? 'AVAX' : token1Address
+      `/${token0Address === chainConfig.wrappedCoinAddress ? chainConfig.currencyName : token0Address}/${token1Address === chainConfig.wrappedCoinAddress ? chainConfig.currencyName : token1Address
       }`
     )
   }
@@ -58,8 +58,8 @@ export function getSwapLink(token0Address, token1Address = null) {
   if (!token1Address) {
     return `https://app.0.exchange/#/swap?inputCurrency=${token0Address}`
   } else {
-    return `https://app.0.exchange/#/swap?inputCurrency=${token0Address === WAVAX_ADDRESS ? 'AVAX' : token0Address
-      }&outputCurrency=${token1Address === WAVAX_ADDRESS ? 'AVAX' : token1Address}`
+    return `https://app.0.exchange/#/swap?inputCurrency=${token0Address === chainConfig.wrappedCoinAddress ? chainConfig.currencyName : token0Address
+      }&outputCurrency=${token1Address === chainConfig.wrappedCoinAddress ? chainConfig.currencyName : token1Address}`
   }
 }
 
@@ -311,10 +311,10 @@ export const setThemeColor = (theme) => document.documentElement.style.setProper
 export const Big = (number) => new BigNumber(number)
 
 export const urls = {
-  showTransaction: (tx) => `https://cchain.explorer.avax.network/tx/${tx}/`,
-  showAddress: (address) => `https://cchain.explorer.avax.network/address/${address}/`,
-  showToken: (address) => `https://cchain.explorer.avax.network/token/${address}/`,
-  showBlock: (block) => `https://cchain.explorer.avax.network/blocks/${block}/`,
+  showTransaction: (tx) => `${chainConfig.blockExplorerUrl}tx/${tx}/`,
+  showAddress: (address) => `${chainConfig.blockExplorerUrl}address/${address}/`,
+  showToken: (address) => `${chainConfig.blockExplorerUrl}token/${address}/`,
+  showBlock: (block) => `${chainConfig.blockExplorerUrl}blocks/${block}/`,
 }
 
 export const formatTime = (unix) => {

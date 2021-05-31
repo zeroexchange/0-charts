@@ -6,6 +6,7 @@ import { useGlobalData, useEthPrice } from '../../contexts/GlobalData'
 import { formattedNum, localNumber } from '../../utils'
 
 import { TYPE } from '../../Theme'
+import { chainConfig } from '../../constants'
 
 const Header = styled.div`
   width: 100%;
@@ -28,17 +29,14 @@ export default function GlobalStats() {
   const [ethPrice] = useEthPrice()
   const formattedEthPrice = ethPrice ? formattedNum(ethPrice, true) : '-'
   const oneDayFees = oneDayVolumeUSD ? formattedNum(oneDayVolumeUSD * 0.003, true) : ''
-  const currencyName
-  = process.env.REACT_APP_CHAIN === 'ava' ? "AVAX"
-    : process.env.REACT_APP_CHAIN === 'bsc' ? "BNB"
-      : 'ETH';
+
   return (
     <Header>
       <RowBetween style={{ padding: below816 ? '0.5rem' : '.5rem' }}>
         <RowFixed>
           {!below400 && (
             <TYPE.main mr={'1rem'} style={{ position: 'relative' }}>
-              {currencyName} Price: <Medium>{formattedEthPrice}</Medium>
+              {chainConfig.currencyName} Price: <Medium>{formattedEthPrice}</Medium>
             </TYPE.main>
           )}
 
