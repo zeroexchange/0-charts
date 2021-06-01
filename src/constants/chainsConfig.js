@@ -1,6 +1,7 @@
 export const ChainsInfo = {
 
-    'ava': {
+    'Avalanche': {
+        chainNameCapital: 'Avalanche',
         currencyName: 'AVAX',
         coingeckoName: 'avalanche-2',
         chainName: 'avalanche',
@@ -12,8 +13,22 @@ export const ChainsInfo = {
         blockExplorerUrl: 'https://cchain.explorer.avax.network/',
         nameExplorer: 'C-Chain Explorer'
     },
-    'bsc': {
+    'Smart_Chain': {
+        chainNameCapital: 'Smart_Chain',
         currencyName: 'BNB',
+        coingeckoName: 'binancecoin',
+        chainName: 'binance',
+        chartsUri: 'https://api.thegraph.com/subgraphs/name/winter256/zerobscgraph3',
+        blocksUri: 'https://api.thegraph.com/subgraphs/name/pancakeswap/blocks',
+        factoryAddress: '0x52abdb3536a3a966056e096f2572b2755df26eac',
+        bundleId: 1,
+        wrappedCoinAddress: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
+        blockExplorerUrl: 'https://bscscan.com/',
+        nameExplorer: 'BscScan Explorer'
+    },
+    'Ethereum': {
+        chainNameCapital: 'Ethereum',
+        currencyName: 'ETH',
         coingeckoName: 'binancecoin',
         chainName: 'binance',
         chartsUri: 'https://api.thegraph.com/subgraphs/name/winter256/zerobscgraph3',

@@ -6,7 +6,7 @@ import { chainConfig } from '../constants'
 export const client = new ApolloClient({
   link: new HttpLink({
     // uri: "https://zero-graph.0.exchange/subgraphs/name/zeroexchange/zerograph"
-    uri: chainConfig.chartsUri,
+    uri: chainConfig?.chartsUri,
     // uri: "https://api.thegraph.com/subgraphs/name/winter256/zeroavagraph",
     // uri: 'https://api.thegraph.com/subgraphs/name/pancakeswap/exchange',
   }),
@@ -24,7 +24,7 @@ export const healthClient = new ApolloClient({
 
 export const blockClient = new ApolloClient({
   link: new HttpLink({
-    uri: chainConfig.blocksUri,
+    uri: chainConfig?.blocksUri,
   }),
   cache: new InMemoryCache(),
 })

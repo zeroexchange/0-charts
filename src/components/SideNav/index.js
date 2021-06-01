@@ -12,6 +12,7 @@ import Link from '../Link'
 import { useSessionStart } from '../../contexts/Application'
 import { useDarkModeManager } from '../../contexts/LocalStorage'
 import Toggle from '../Toggle'
+import ChainSelect from '../ChainSelect'
 
 const Wrapper = styled.div`
   height: ${({ isMobile }) => (isMobile ? 'initial' : '100vh')};
@@ -162,6 +163,10 @@ function SideNav({ history }) {
               </AutoColumn>
             )}
           </AutoColumn>
+          <AutoColumn gap="0.5rem" style={{ marginLeft: '.75rem' }}>
+            <ChainSelect />
+          </AutoColumn>
+
           <AutoColumn gap="0.5rem" style={{ marginLeft: '.75rem', marginBottom: '4rem' }}>
             <HeaderText>
               <Link href="https://app.0.exchange" target="_blank">
@@ -197,10 +202,10 @@ function SideNav({ history }) {
           )}
         </DesktopWrapper>
       ) : (
-          <MobileWrapper>
-            <Title />
-          </MobileWrapper>
-        )}
+        <MobileWrapper>
+          <Title />
+        </MobileWrapper>
+      )}
     </Wrapper>
   )
 }

@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useReducer, useMemo, useCallback, useEffect } from 'react'
-
 const UNISWAP = 'UNISWAP'
 
 const VERSION = 'VERSION'
@@ -11,8 +10,9 @@ const SAVED_TOKENS = 'SAVED_TOKENS'
 const SAVED_PAIRS = 'SAVED_PAIRS'
 
 const DARK_MODE = 'DARK_MODE'
+const CURRENT_CHAIN = 'CURRENT_CHAIN'
 
-const UPDATABLE_KEYS = [DARK_MODE, DISMISSED_PATHS, SAVED_ACCOUNTS, SAVED_PAIRS, SAVED_TOKENS]
+const UPDATABLE_KEYS = [DARK_MODE, DISMISSED_PATHS, SAVED_ACCOUNTS, SAVED_PAIRS, SAVED_TOKENS, CURRENT_CHAIN]
 
 const UPDATE_KEY = 'UPDATE_KEY'
 
@@ -42,6 +42,8 @@ function reducer(state, { type, payload }) {
 }
 
 function init() {
+  const chainFromStorage = localStorage.getItem('UNISWAP') ? JSON.parse(localStorage.getItem('UNISWAP'))['CURRENT_CHAIN'] : 'Smart_Chain'
+
   const defaultLocalStorage = {
     [VERSION]: CURRENT_VERSION,
     [DARK_MODE]: true,
@@ -49,6 +51,7 @@ function init() {
     [SAVED_ACCOUNTS]: [],
     [SAVED_TOKENS]: {},
     [SAVED_PAIRS]: {},
+    [CURRENT_CHAIN]: chainFromStorage
   }
 
   try {
@@ -94,10 +97,31 @@ export function useDarkModeManager() {
   const toggleDarkMode = useCallback(
     (value) => {
       updateKey(DARK_MODE, value === false || value === true ? value : !isDarkMode)
+      
     },
     [updateKey, isDarkMode]
   )
   return [isDarkMode, toggleDarkMode]
+}
+
+export function useChainManager() {
+  const [state, { updateKey }] = useLocalStorageContext()
+  let currentChain = state[CURRENT_CHAIN]
+ 
+  const toggleChain = useCallback(
+    (value) => {
+    if(currentChain!== value && value ) {
+      updateKey(CURRENT_CHAIN, value)
+      setTimeout(() => {
+        window.location.href = '/'
+      }, 1000)     
+    
+    }    
+      
+    },
+    [updateKey, currentChain]
+  )
+  return [currentChain, toggleChain]
 }
 
 export function usePathDismissed(path) {

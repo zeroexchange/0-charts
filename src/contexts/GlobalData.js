@@ -461,22 +461,22 @@ const getGlobalTransactions = async () => {
 const getEthPrice = async () => {
   const utcCurrentTime = dayjs()
   const utcOneDayBack = utcCurrentTime.subtract(1, 'day').startOf('minute').unix() * 1000
-
-  let result = await coinGeckoClient.simple.price({
-    ids: [chainConfig.coingeckoName],
+  let result, ethPrice, priceChangeETH, ethPriceOneDay;
+if(chainConfig) {
+   result = await coinGeckoClient.simple.price({
+    ids: [chainConfig?.coingeckoName],
     vs_currencies: ['usd'],
     include_24hr_change: ['true']
   })
 
-  let ethPrice = result['data'][chainConfig.coingeckoName]['usd']
-  let priceChangeETH = result['data'][chainConfig.coingeckoName]['usd_24h_change']
+  ethPrice = result['data'][chainConfig?.coingeckoName]['usd']
+  priceChangeETH = result['data'][chainConfig?.coingeckoName]['usd_24h_change']
 
-  result = await coinGeckoClient.coins.fetchMarketChart(chainConfig.coingeckoName, {
+  result = await coinGeckoClient.coins.fetchMarketChart(chainConfig?.coingeckoName, {
     days: 1,
     vs_currency: 'usd'
   })
-
-  let ethPriceOneDay = 0
+   ethPriceOneDay = 0
 
   let i
   let snapshot
@@ -487,6 +487,10 @@ const getEthPrice = async () => {
       break
     }
   }
+}
+  
+
+
 
   return [ethPrice, ethPriceOneDay, priceChangeETH]
 }
@@ -496,7 +500,7 @@ export const getEthPriceAtTimestamp = async (timestamp) => {
   let diff = utcCurrentTime - timestamp
   let days_back = Math.round(diff / (60 * 60 * 24))
 
-  let result = await coinGeckoClient.coins.fetchMarketChart(chainConfig.coingeckoName, {
+  let result = await coinGeckoClient.coins.fetchMarketChart(chainConfig?.coingeckoName, {
     days: days_back,
     vs_currency: 'usd'
   })
@@ -506,11 +510,11 @@ export const getEthPriceAtTimestamp = async (timestamp) => {
 
 export const getCurrentEthPrice = async () => {
   let result = await coinGeckoClient.simple.price({
-    ids: [chainConfig.coingeckoName],
+    ids: [chainConfig?.coingeckoName],
     vs_currencies: ['usd']
   })
 
-  let ethPrice = result['data'][chainConfig.coingeckoName]['usd']
+  let ethPrice = result['data'][chainConfig?.coingeckoName]['usd']
 
   return ethPrice
 }
@@ -523,7 +527,7 @@ export const getEthPriceAtDate = async (timestamp) => {
 
   let dateString = datetime.getDate() + '-' + (datetime.getMonth() + 1) + '-' + datetime.getFullYear()
 
-  let result = await coinGeckoClient.coins.fetchHistory(chainConfig.coingeckoName, {
+  let result = await coinGeckoClient.coins.fetchHistory(chainConfig?.coingeckoName, {
     date: dateString
   })
 

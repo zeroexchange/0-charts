@@ -198,8 +198,8 @@ function App() {
                 <LayoutWrapper savedOpen={savedOpen} setSavedOpen={setSavedOpen}>
                   <AccountLookup />
                 </LayoutWrapper>
-              </Route>
-
+              </Route>            
+              
               <Redirect to="/home" />
             </Switch>
           </HashRouter>

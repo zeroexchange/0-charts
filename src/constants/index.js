@@ -1,8 +1,12 @@
-import { ChainsInfo } from "./chainsConfig";
 
-export const chainConfig = process.env.REACT_APP_CHAIN ? ChainsInfo[process.env.REACT_APP_CHAIN] : ChainsInfo['ava']
+import { ChainsInfo } from "./chainsConfig";
+ 
+const localStorageAsObj = JSON.parse(localStorage.getItem('UNISWAP'))
+export const currentChainInStorage = localStorageAsObj ? localStorageAsObj['CURRENT_CHAIN']: null
+export const chainConfig = currentChainInStorage ? ChainsInfo[currentChainInStorage] : ChainsInfo['Smart_Chain']
 
 export const timeframeOptions = {
+
   WEEK: '1 week',
   MONTH: '1 month',
   // THREE_MONTHS: '3 months',
