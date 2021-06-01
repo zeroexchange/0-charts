@@ -8,6 +8,7 @@ import { usePrevious } from 'react-use'
 import { Play } from 'react-feather'
 import { useDarkModeManager } from '../../contexts/LocalStorage'
 import { IconWrapper } from '..'
+import { chainConfig } from '../../constants'
 
 dayjs.extend(utc)
 
@@ -54,7 +55,7 @@ const TradingViewChart = ({
   // parese the data and format for tardingview consumption
   const formattedData = data?.map((entry) => {
     let formattedValue = parseFloat(entry[field]);
-    if (process.env.REACT_APP_CHAIN === 'ava' && Number(entry.id) > 18705) {
+    if (chainConfig.chainName === 'avalanche' && Number(entry.id) > 18705) {
       formattedValue *= 10;
     }
     return {
