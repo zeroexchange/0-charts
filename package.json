@@ -72,8 +72,8 @@
     "wcag-contrast": "^3.0.0"
   },
   "scripts": {
-    "start": "export REACT_APP_CHAIN=bsc && react-scripts start",
-    "build": "export REACT_APP_CHAIN=bsc && react-scripts build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

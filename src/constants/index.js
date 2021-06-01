@@ -3,7 +3,8 @@ import { ChainsInfo } from "./chainsConfig";
  
 const localStorageAsObj = JSON.parse(localStorage.getItem('UNISWAP'))
 export const currentChainInStorage = localStorageAsObj ? localStorageAsObj['CURRENT_CHAIN']: null
-export const chainConfig = currentChainInStorage ? ChainsInfo[currentChainInStorage] : ChainsInfo['Smart_Chain']
+const checkBsc = currentChainInStorage === 'Smart Chain' ? 'Smart_Chain': currentChainInStorage
+export const chainConfig = checkBsc ? ChainsInfo[checkBsc] : ChainsInfo['Avalanche']
 
 export const timeframeOptions = {
 

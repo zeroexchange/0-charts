@@ -49,9 +49,9 @@ const Option = styled(Row)`
     }
 `
 
-const ChainSelect = () => {
+const SelectChain = () => {
     const [showDropdown, toggleDropdown] = useState(false)
-    const chainsNames = ['Avalanche', 'Smart_Chain']
+    const chainsNames = ['Avalanche', 'Smart Chain']
     const [chain, toggleCurrency] = useState(currentChainInStorage)
 
     let chainsWithoutCurrent = chainsNames.filter(item => item !== chain)
@@ -98,4 +98,4 @@ const ChainSelect = () => {
     )
 }
 
-export default ChainSelect
+export default SelectChain

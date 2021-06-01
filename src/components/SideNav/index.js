@@ -12,7 +12,7 @@ import Link from '../Link'
 import { useSessionStart } from '../../contexts/Application'
 import { useDarkModeManager } from '../../contexts/LocalStorage'
 import Toggle from '../Toggle'
-import ChainSelect from '../ChainSelect'
+import SelectChain from '../SelectChain'
 
 const Wrapper = styled.div`
   height: ${({ isMobile }) => (isMobile ? 'initial' : '100vh')};
@@ -164,7 +164,7 @@ function SideNav({ history }) {
             )}
           </AutoColumn>
           <AutoColumn gap="0.5rem" style={{ marginLeft: '.75rem' }}>
-            <ChainSelect />
+            <SelectChain />
           </AutoColumn>
 
           <AutoColumn gap="0.5rem" style={{ marginLeft: '.75rem', marginBottom: '4rem' }}>

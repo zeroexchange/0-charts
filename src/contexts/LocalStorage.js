@@ -42,7 +42,7 @@ function reducer(state, { type, payload }) {
 }
 
 function init() {
-  const chainFromStorage = localStorage.getItem('UNISWAP') ? JSON.parse(localStorage.getItem('UNISWAP'))['CURRENT_CHAIN'] : 'Smart_Chain'
+  const chainFromStorage = localStorage.getItem('UNISWAP') ? JSON.parse(localStorage.getItem('UNISWAP'))['CURRENT_CHAIN'] : 'Smart Chain'
 
   const defaultLocalStorage = {
     [VERSION]: CURRENT_VERSION,

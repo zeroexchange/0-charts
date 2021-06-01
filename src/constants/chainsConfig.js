@@ -14,7 +14,7 @@ export const ChainsInfo = {
         nameExplorer: 'C-Chain Explorer'
     },
     'Smart_Chain': {
-        chainNameCapital: 'Smart_Chain',
+        chainNameCapital: 'Smart Chain',
         currencyName: 'BNB',
         coingeckoName: 'binancecoin',
         chainName: 'binance',
