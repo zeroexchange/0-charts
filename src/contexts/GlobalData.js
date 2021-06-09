@@ -239,21 +239,25 @@ async function getGlobalData(ethPrice, oldEthPrice) {
       query: GLOBAL_DATA(),
       fetchPolicy: 'cache-first',
     })
+    console.log("🚀 ~ file: GlobalData.js ~ line 242 ~ getGlobalData ~ result", result)
     data = result.data.zeroFactories[0]
 
     // fetch the historical data
+    console.log('GLOBAL_DATA(oneDayBlock?.number) :>> ', oneDayBlock?.number );
     let oneDayResult = await client.query({
       query: GLOBAL_DATA(oneDayBlock?.number),
       fetchPolicy: 'cache-first',
     })
     oneDayData = oneDayResult.data.zeroFactories[0]
 
+    console.log('GLOBAL_DATA(twoDayBlock?.number) :>> ',  twoDayBlock?.number );
     let twoDayResult = await client.query({
       query: GLOBAL_DATA(twoDayBlock?.number),
       fetchPolicy: 'cache-first',
     })
     twoDayData = twoDayResult.data.zeroFactories[0]
 
+    console.log('GLOBAL_DATA(oneWeekBlock?.number) :>> ',  oneWeekBlock?.number );
     let oneWeekResult = await client.query({
       query: GLOBAL_DATA(oneWeekBlock?.number),
       fetchPolicy: 'cache-first',
@@ -264,6 +268,7 @@ async function getGlobalData(ethPrice, oldEthPrice) {
       query: GLOBAL_DATA(twoWeekBlock?.number),
       fetchPolicy: 'cache-first',
     })
+    console.log('GLOBAL_DATA(twoWeekBlock?.number) :>> ', GLOBAL_DATA(twoWeekBlock?.number));
     const twoWeekData = twoWeekResult.data.zeroFactories[0]
 
     if (data) {
@@ -329,6 +334,7 @@ const getChartData = async (oldestDateToFetch, ethPrice) => {
   let allFound = false
 
   try {
+    console.log('GLOBAL_CHART :>> ', GLOBAL_CHART, oldestDateToFetch, skip);
     while (!allFound) {
       let result = await client.query({
         query: GLOBAL_CHART,
@@ -338,6 +344,7 @@ const getChartData = async (oldestDateToFetch, ethPrice) => {
         },
         fetchPolicy: 'cache-first',
       })
+      console.log("🚀 ~ file: GlobalData.js ~ line 346 ~ getChartData ~ result", result)
       skip += 1000
       data = data.concat(result.data.zeroDayDatas)
       if (result.data.zeroDayDatas.length < 1000) {

@@ -19,10 +19,10 @@ export const ChainsInfo = {
         coingeckoName: 'binancecoin',
         chainName: 'binance',
         chartsUri: 'https://api.thegraph.com/subgraphs/name/winter256/zerobscgraph3',
-        blocksUri: 'https://api.thegraph.com/subgraphs/name/pancakeswap/blocks',
+        blocksUri: 'https://api.thegraph.com/subgraphs/name/winter256/zeroethgraph2',
         factoryAddress: '0x52abdb3536a3a966056e096f2572b2755df26eac',
         bundleId: 1,
-        wrappedCoinAddress: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
+        wrappedCoinAddress: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
         blockExplorerUrl: 'https://bscscan.com/',
         nameExplorer: 'BscScan Explorer'
     },
@@ -30,14 +30,14 @@ export const ChainsInfo = {
         chainNameCapital: 'Ethereum',
         currencyName: 'ETH',
         coingeckoName: 'binancecoin',
-        chainName: 'binance',
-        chartsUri: 'https://api.thegraph.com/subgraphs/name/winter256/zerobscgraph3',
-        blocksUri: 'https://api.thegraph.com/subgraphs/name/pancakeswap/blocks',
-        factoryAddress: '0x52abdb3536a3a966056e096f2572b2755df26eac',
+        chainName: 'ethereum',
+        chartsUri: 'https://api.thegraph.com/subgraphs/name/winter256/zeroethgraph3',
+        blocksUri: 'https://api.thegraph.com/subgraphs/name/blocklytics/ethereum-blocks',
+        factoryAddress: '0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f',
         bundleId: 1,
-        wrappedCoinAddress: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
-        blockExplorerUrl: 'https://bscscan.com/',
-        nameExplorer: 'BscScan Explorer'
+        wrappedCoinAddress: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
+        blockExplorerUrl: 'https://etherscan.io/',
+        nameExplorer: 'EtherScan'
     }
 
 }

@@ -51,7 +51,7 @@ const Option = styled(Row)`
 
 const SelectChain = () => {
     const [showDropdown, toggleDropdown] = useState(false)
-    const chainsNames = ['Avalanche', 'Smart Chain']
+    const chainsNames = ['Avalanche', 'Smart Chain', 'Ethereum']
     const [chain, toggleCurrency] = useState(currentChainInStorage)
 
     let chainsWithoutCurrent = chainsNames.filter(item => item !== chain)
