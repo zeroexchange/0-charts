@@ -31,7 +31,7 @@ export const ChainsInfo = {
         currencyName: 'ETH',
         coingeckoName: 'ethereum',
         chainName: 'ethereum',
-        chartsUri: 'https://api.thegraph.com/subgraphs/name/winter256/zeroethgraph2',
+        chartsUri: 'https://api.thegraph.com/subgraphs/name/winter256/zeroethgraph4',
         blocksUri: 'https://api.thegraph.com/subgraphs/name/blocklytics/ethereum-blocks',
         factoryAddress: '0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f',
         bundleId: 1,
